@@ -1,0 +1,19 @@
+# site.yml
+---
+- hosts: all
+  roles:
+    - bertvv.rh-base
+
+- hosts: srv010
+  roles:
+    - bertvv.mariadb
+    - bertvv.httpd
+    - bertvv.wordpress
+
+- hosts: srv003
+  roles:
+    - bertvv.dhcp
+
+- hosts: srv001
+  roles:
+    - bertvv.bind

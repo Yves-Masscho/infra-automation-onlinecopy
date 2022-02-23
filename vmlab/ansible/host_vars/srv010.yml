@@ -1,0 +1,24 @@
+# ansible/host_vars/srv010.yml
+
+#MARIADB
+mariadb_databases:
+  - name: wordpress
+mariadb_root_password: wordroot123
+mariadb_users:
+  - name: wordpress
+    password: wordpress123
+    priv: 'wordpress.*:ALL' #should be without GRANT?
+
+#FIREWALL
+rhbase_firewall_allow_services:
+  - http
+  - https
+  - ssh
+
+#WORDPRESS
+wordpress_database: wordpress
+wordpress_user: wordpress
+wordpress_password: wordpress123
+
+httpd_ssl_certificate_key_file: 'ca.key'
+httpd_ssl_certificate_file: 'ca.crt'

@@ -1,0 +1,20 @@
+# group_vars/all.yml
+# Variables visible to all nodes
+---
+
+rhbase_repositories:
+  - epel-release
+rhbase_install_packages:
+  - bash-completion
+  - vim-enhanced
+  - bind-utils
+  - git
+  - nano
+  - tree
+  - wget
+rhbase_users:
+  - name: yves
+    comment: 'Administrator'
+    groups:
+      - wheel
+    ssh_key: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCrPr+NbTI4RnTzbBd82JsXFDlicAKC/Ps+FbTKNWRh3a0wyIWzQmXKdq4Y2/6ahMb11yettSQcO2PwFYbyNkXa/dQ4xIiyi3T4IpBFW3/1vssNLRnm1VQZjAQK4P/LfV8n8awAnnFJLMUvrfuVZ0GL0l1xrjzMiXZU0v8XURC8wyHERjQflfg6scB7aMkU2Bq1OSbnLJOMlS1d58B6q1+xnK00meL72rVc+aUsuMCf00HPPMtOBE7YGPlIIadEVLkFmHNcjDQUC1QIwDrSrto7KNRHA36cNHS07irNt3u+5liZwnH6jJ3ScbJPrzzLvL2OZ7adykknM46AIMXp9hcHpMgeekRgZScoiM6X0xLoVO3I/khuMV+dRMSJ8dkDSDEj48NdjuAHBR6nOeDfCeNGw/ISyNIsTfokJ1YDeH5AkP6PU3vhcjb5gojUz1p7ISAet54ZguEpO2KhjbLHaN4UF6A0nHIvbYa17d7LfHCB8Z2bCiZYcyM0YmP+z3k+0M0= Yves@DESKTOP-TV19DVA'

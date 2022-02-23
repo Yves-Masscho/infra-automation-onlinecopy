@@ -1,0 +1,17 @@
+# Router configuration playbook
+---
+- hosts: CSR1kv
+  tasks:
+    - name: Set interface GE2
+      ios_l3_interfaces:
+        config:
+          - name: GigabitEthernet2
+            ipv4:
+              - address: 172.16.255.254/16
+        state: merged
+    - name: Enable GE2
+      ios_interfaces:
+        config:
+          - name: GigabitEthernet2
+            enabled: yes
+        state: merged

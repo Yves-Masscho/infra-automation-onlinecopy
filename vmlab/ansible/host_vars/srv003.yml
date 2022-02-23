@@ -1,0 +1,37 @@
+# ansible/host_vars/srv003.yml
+
+rhbase_firewall_allow_services:
+  - dhcp
+
+dhcp_global_domain_name: infra.lan
+
+dhcp_global_name_servers:
+  - 172.16.128.2
+dhcp_global_subnet_mask: 255.255.0.0
+
+dhcp_subnets:
+  - ip: 172.16.0.0
+    netmask: 255.255.0.0
+    domain_name_servers:
+      - 172.16.128.2
+    routers: 172.16.255.254
+    pools:
+        #DYNAMIC IP
+      - default_lease_time: 14400
+        max_lease_time: 14400
+        range_begin: 172.16.0.2
+        range_end: 172.16.127.254
+        #An unknown client is simply a client that has no host declaration. 
+        allow: unknown-clients
+        #ALL STATIC IP
+      - default_lease_time: 14400
+        max_lease_time: 14400
+        range_begin: 172.16.192.1
+        range_end: 172.16.255.253
+        #Clients allocated with a host declaration
+        allow: known-clients
+
+dhcp_hosts:
+  - name: workstation1
+    mac: '08:00:27:06:DF:1E'
+    ip: 172.16.192.2
